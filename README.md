@@ -63,10 +63,7 @@ Streamlit Cloud
 HuggingFace Spaces
 
 Just upload your repo and select streamlit_app.py as the entrypoint.
-
-📸 Screenshots
-
-(Add your app screenshots here for better presentation)
+ 
 
 🙌 Acknowledgements
 
