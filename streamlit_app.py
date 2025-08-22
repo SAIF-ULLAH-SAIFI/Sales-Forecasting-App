@@ -25,18 +25,26 @@ if uploaded_file:
     st.subheader("🔍 Uploaded Data Preview")
     st.dataframe(df.head())
 
-    # Dummy prediction using last column
-    forecast = df.iloc[:, -1].tail(horizon).reset_index(drop=True)
+    try:
+        # Features from uploaded data (excluding target if needed)
+        X = df.dropna()
 
-    st.subheader("📈 Forecast Results")
-    st.line_chart(forecast)
+        # Forecast using trained model
+        predictions = model.predict(X.tail(horizon))
 
-    # Display table
-    st.write("📊 Future Sales Forecast")
-    forecast_df = pd.DataFrame({
-        "Week": range(1, horizon + 1),
-        "Forecast": forecast
-    })
-    st.table(forecast_df)
+        st.subheader("📈 Forecast Results")
+        st.line_chart(predictions)
+
+        # Display forecast table
+        st.write("📊 Future Sales Forecast")
+        forecast_df = pd.DataFrame({
+            "Week": range(1, horizon + 1),
+            "Forecast": predictions
+        })
+        st.table(forecast_df)
+
+    except Exception as e:
+        st.error(f"⚠️ Error during prediction: {e}")
+        st.info("Make sure your uploaded CSV has the same feature columns as the model was trained on.")
 else:
     st.info("👆 Please upload a CSV file to continue.")
