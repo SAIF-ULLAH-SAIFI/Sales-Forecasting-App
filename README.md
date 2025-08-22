@@ -53,6 +53,7 @@ streamlit run streamlit_app.py
 
 It will start a local server at:
 👉 http://localhost:8501
+Network URL: http://10.67.192.222:8501
 
 🌍 Deployment
 
