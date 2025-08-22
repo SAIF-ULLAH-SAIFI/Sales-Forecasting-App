@@ -1,4 +1,3 @@
-# Sales-Forecasting-App
 📊 Sales Forecasting App
 
 This project is a Sales Forecasting Web Application built with Streamlit and a trained Machine Learning model.
@@ -64,8 +63,8 @@ Streamlit Cloud
 HuggingFace Spaces
 
 Just upload your repo and select streamlit_app.py as the entrypoint.
- 
 
+ 
 🙌 Acknowledgements
 
 Streamlit
